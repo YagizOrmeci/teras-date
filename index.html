@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bira İçelim Mi?</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Mitr:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            text-align: center;
+            background-color: #12f365;
+            /* Sıcak bir krem/bira köpüğü tonu */
+            margin-top: 50px;
+            font-family: 'Mitr', sans-serif;
+            overflow: hidden;
+            /* Buton devasa olunca sayfa kaymasın */
+            height: 100vh;
+        }
+
+        img {
+            height: 250px;
+            max-width: 90%;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+        h1 { color: white; }
+        p {
+            color: white;
+            font-size:24px;
+        }
+
+        button {
+            border: none;
+            padding: 15px 40px;
+            border-radius: 20px;
+            font-size: 18px;
+            cursor: pointer;
+            margin: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            font-family: 'Mitr', sans-serif;
+            font-weight: 500;
+        }
+
+        #evet {
+            background-color: #f32112;
+            /* Bira sarısı/turuncu tonu */
+            color: white;
+            transition: all 0.3s ease;
+            /* Büyürken aniden değil, yumuşakça şişer */
+            position: relative;
+            z-index: 10;
+            /* Büyüdükçe yazının ve hayır butonunun üstünü kapatması için */
+        }
+
+        #hayir {
+            background-color: #f32112;
+            color: white;
+        }
+        /* YENİ EKLEDİĞİN CSS BURAYA GELECEK */
+    .sabit-imza {
+    position: fixed;
+    bottom: 25px; /* Alttan mesafeyi azıcık artırdık */
+    right: 25px;  /* Sağdan mesafeyi azıcık artırdık */
+    font-size: 24px; /* Boyutu 16'dan 24'e çıkardık, artık net belli olur */
+    color: white; 
+    font-family: 'Mitr', sans-serif;
+    font-weight: 600; /* Yazıyı daha kalın ve dolgun yaptık */
+    opacity: 0.95; /* Şeffaflığı azalttık, daha net parlasın */
+    z-index: 9999; 
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Gölgesini güçlendirdik, arkadaki yeşilin üstünde patlasın */
+}
+    
+    </style>
+
+    <meta charset="UTF-8">
+
+    <style>
+        /* Standalone Mobil Optimizasyon */
+        @media (max-width: 768px) {
+            body { margin-top: 20px !important; padding: 15px !important; box-sizing: border-box !important; overflow-y: auto !important; height: auto !important; min-height: 100vh !important; }
+            h1 { font-size: 24px !important; margin: 10px 0 !important; line-height: 1.2 !important; }
+            p { font-size: 16px !important; margin: 10px 0 !important; padding: 0 5px !important; line-height: 1.4 !important; }
+            img { max-height: 220px !important; width: 100% !important; object-fit: contain !important; }
+            button { padding: 12px 25px !important; font-size: 16px !important; margin: 5px !important; width: 100% !important; max-width: 300px !important; box-sizing: border-box !important; }
+            br { display: none; }
+            
+        }
+    </style>
+
+	<script src="https://pl29404834.effectivecpmnetwork.com/22/68/98/22689886ad5fab2b03fa69831e7961f7.js"></script>
+
+</head>
+
+<body>
+
+    <img id="anaResim" src="bira1.gif">
+
+    <h1 id="anaBaslik">Teras Bar Date ? 🍻</h1>
+    <p id="altYazi">Akarız? </p>
+
+    <br><br>
+    <button id="evet">Evet</button>
+    <button id="hayir">Hayır</button>
+
+    <script>
+        // Değişkenleri Tanımlıyoruz
+        let hayirButonu = document.getElementById("hayir");
+        let evetButonu = document.getElementById("evet");
+        let resim = document.getElementById("anaResim");
+        let baslik = document.getElementById("anaBaslik");
+        let altYazi = document.getElementById("altYazi");
+
+        let tiklamaSayisi = 0;
+        let evetBoyutu = 1; // Evet butonunun başlangıç boyutu (Çarpan)
+
+        // Hayır Butonu İşlemleri
+        hayirButonu.addEventListener("click", function () {
+            tiklamaSayisi = tiklamaSayisi + 1;
+
+            // EVET BUTONUNU DEVLEŞTİRME SİHRİ
+            evetBoyutu = evetBoyutu + 0.8; // Her tıkta %80 daha büyür
+            evetButonu.style.transform = "scale(" + evetBoyutu + ")";
+
+            if (tiklamaSayisi == 1) {
+                resim.src = "bira2.gif";
+                baslik.innerHTML = "yarma sarisin";
+                altYazi.innerHTML = "Özledim seni?";
+            }
+
+            if (tiklamaSayisi == 2) {
+                resim.src = "bira3.gif";
+                baslik.innerHTML = "POLİSİ ARARIM";
+                altYazi.innerHTML = "evete bas ☺️​☺️";
+            }
+            
+            if (tiklamaSayisi >= 3) {
+                resim.src = "bira4.gif";
+                baslik.innerHTML = "bassana :)";
+                altYazi.innerHTML = "inatcilik dizboyu";
+            }
+        });
+
+        // Evet Butonu İşlemleri
+        evetButonu.addEventListener("click", function () {
+            resim.src = "biramutlu.gif";
+            baslik.innerHTML = "cok seviyorum seni 🍻";
+            altYazi.innerHTML = "Mekan:Yurdunun Önü"+" "+"Saat: 7.30?" ;
+
+            // Butonları gizle (Eski boyutuna döndürüp saklıyoruz)
+            evetButonu.style.transform = "scale(1)";
+            evetButonu.style.display = "none";
+            hayirButonu.style.display = "none";
+        });
+    </script>
+
+<div class="sabit-imza">Yağız ❤️</div>
+</body>
+
+</html>

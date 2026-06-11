@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bira İçelim Mi?</title>
+    <title>Çay İçelim Mi?</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -92,6 +92,7 @@
         }
     </style>
 
+	
 
 </head>
 
@@ -99,8 +100,8 @@
 
     <img id="anaResim" src="bira1.gif">
 
-    <h1 id="anaBaslik">Teras Bar Date ? 🍻</h1>
-    <p id="altYazi">Akarız? </p>
+    <h1 id="anaBaslik">Çay Date? </h1>
+    <p id="altYazi">Çay? </p>
 
     <br><br>
     <button id="evet">Evet</button>
@@ -127,13 +128,13 @@
 
             if (tiklamaSayisi == 1) {
                 resim.src = "bira2.gif";
-                baslik.innerHTML = "yarma sarisin";
-                altYazi.innerHTML = "Özledim seni?";
+                baslik.innerHTML = "Çay? ";
+                altYazi.innerHTML = "Çay?";
             }
 
             if (tiklamaSayisi == 2) {
                 resim.src = "bira3.gif";
-                baslik.innerHTML = "POLİSİ ARARIM";
+                baslik.innerHTML = "Çay?";
                 altYazi.innerHTML = "evete bas ☺️​☺️";
             }
             
@@ -147,8 +148,8 @@
         // Evet Butonu İşlemleri
         evetButonu.addEventListener("click", function () {
             resim.src = "biramutlu.gif";
-            baslik.innerHTML = "cok seviyorum seni 🍻";
-            altYazi.innerHTML = "Mekan:Yurdunun Önü"+" "+"Saat: 7.30?" ;
+            baslik.innerHTML = "Çay?";
+            altYazi.innerHTML = "" ;
 
             // Butonları gizle (Eski boyutuna döndürüp saklıyoruz)
             evetButonu.style.transform = "scale(1)";
@@ -157,7 +158,7 @@
         });
     </script>
 
-<div class="sabit-imza">Yağız ❤️</div>
+<div class="sabit-imza">Batu ❤️</div>
 </body>
 
 </html>
